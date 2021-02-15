@@ -1,0 +1,10 @@
+{
+  "name": "redbadger-robot",
+  "version": "1.0.0",
+  "description": "Red Badger Robot on Grid",
+  "main": "index.js",
+  "repository": "git@github.com:bradarnst/redbadger-robot.git",
+  "author": "Brad Arnst",
+  "license": "MIT",
+  "private": false
+}
