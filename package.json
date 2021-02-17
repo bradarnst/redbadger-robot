@@ -1,5 +1,6 @@
 {
   "name": "redbadger-robot",
+  "type": "module",
   "version": "1.0.0",
   "description": "Red Badger Robot on Grid",
   "main": "index.js",
@@ -11,6 +12,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.12.13",
     "jest": "^26.6.3"
   }
 }
