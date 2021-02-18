@@ -8,6 +8,9 @@
   "author": "Brad Arnst",
   "license": "MIT",
   "private": false,
+  "engines": {
+    "node": ">=14.13.1"
+  },
   "scripts": {
     "test": "jest"
   },

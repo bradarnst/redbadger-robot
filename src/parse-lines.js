@@ -12,10 +12,10 @@ export function gridSize (line) {
     let notGood = noDigitsSpaces;
     if (notGood.test(trimLine)) {
         try {
-            throw new Error("On Grid Size. "+lineEntryError);
+            throw new Error("bad syntax on grid size. See README.");
         } catch (e) {
             console.error(e.name + ': ' + e.message);
-            return; 
+            return e.name; 
         }
     } else {
         const lineArray = trimLine.split(whSp, 2); //remove start/trailing whitespace and all but the first two strings
@@ -25,10 +25,10 @@ export function gridSize (line) {
                 val = parseInt(val,10);
                 if (val > gridLimit) {
                     try {
-                        throw new Error("Grid size must be max of "+ gridLimit);
+                        throw new Error("grid size must be max of "+ gridLimit);
                     } catch (e) {
                         console.error(e.name + ': ' + e.message);
-                        return;
+                        return e.name;
                     }
                 }
                 lineList.push(val);
@@ -45,10 +45,10 @@ export function startPos (line,gridSize) {
     let notGood = noDigitsDirection;
     if ( notGood.test(trimLine)) {
         try {
-            throw new Error("On Start Position. "+lineEntryError);
+            throw new Error("bad syntax on start position. See README.");
         } catch (e) {
             console.error(e.name + ': ' + e.message);
-            return;
+            return e.name;
         }
     } else {
         const lineArray = trimLine.split(whSp, 3); //remove start/trailing whitespace and all but the first three strings
@@ -65,10 +65,10 @@ export function startPos (line,gridSize) {
         for (let i=0; i<=1; i++) {
             if (start[i] > gridSize[i]) {
                 try {
-                    throw new Error("Start position outside of size of grid.");
+                    throw new Error("start position outside of size of grid.");
                 } catch (e) {
                     console.error(e.name + ': ' + e.message);
-                    return;
+                    return e.name;
                 }
             }
         }
@@ -77,17 +77,25 @@ export function startPos (line,gridSize) {
 }
 export function robotMoves (line) {
     // let trimLine = line.trim();
-    let noWhSpLine = line.replace(/\s+/g,''); //remove all whitespace
-    let notGood = noRobotMoves;
-    if (notGood.test(noWhSpLine)) {
+    let noWhSpcLine = line.replace(/\s+/g,''); //remove all whitespace
+    if (noWhSpcLine.length > 100) {
         try {
-            throw new Error("On Robot Moves. "+lineEntryError);
+            throw new Error("too many instructions. See README.");
         } catch (e) {
             console.error(e.name + ': ' + e.message);
-            return;
+            return e.name;
+        }
+    }
+    let notGood = noRobotMoves;
+    if (notGood.test(noWhSpcLine)) {
+        try {
+            throw new Error("bad syntax on robot moves. See README.");
+        } catch (e) {
+            console.error(e.name + ': ' + e.message);
+            return e.name;
         }
     } else {
-    let lineArray = Array.from(noWhSpLine);
+    let lineArray = Array.from(noWhSpcLine);
     let moves = lineArray;
     return moves;
 }
