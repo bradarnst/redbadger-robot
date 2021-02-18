@@ -38,4 +38,4 @@ let robotObj = {
     "end": endPosObj
 };
 // console.log(robotObj);
-output.computeRobotMoves(robotObj);
+output.computeRobotMoves(robotObj,gridSize);

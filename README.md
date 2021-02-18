@@ -50,8 +50,6 @@ Sample  Output
 I'm using nodejs and jest for testing. I've set the node version to 14.13.1 or greater to ensure compatibility. See package.json
 
 ## ToDo
-I've yet to implement the robot falling off the edge. I plan on doing this asap.
-Other todos:
 * better automated testing with jest, such as edge cases, etc.
 * currently only does one robot at a time, will add ability for multiple robots
 * potential add input from files instead of stdin (command line)
