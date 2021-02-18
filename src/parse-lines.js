@@ -8,6 +8,14 @@ const lineEntryError = "Incorrect entry. See README for syntax.";
 const gridLimit = 50;
 
 export function gridSize (line) {
+    if (line.length < 2) {
+        try {
+            throw new Error("Need x & y coordinates.");
+        } catch (e) {
+            console.error(e.name + ': ' + e.message);
+            return e.name;
+        }
+    };
     let trimLine = line.trim();
     let notGood = noDigitsSpaces;
     if (notGood.test(trimLine)) {
@@ -41,6 +49,14 @@ export function gridSize (line) {
     }
 }
 export function startPos (line,gridSize) {
+    if (line.length < 3) {
+        try {
+            throw new Error("Need x & y coordinates and direction.");
+        } catch (e) {
+            console.error(e.name + ': ' + e.message);
+            return e.name;
+        }
+    };
     let trimLine = line.trim();
     let notGood = noDigitsDirection;
     if ( notGood.test(trimLine)) {

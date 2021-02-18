@@ -9,9 +9,9 @@ test('gridSize returns correct array.', () => {
 
 test('startPos returns correct array.', () => {
     const line = '  5    20  E   ';
-    const gridSize = [20,30];
+    const gSize = [20,30];
     const correctArray = [5,20,'E'];
-    expect(parse.startPos(line,gridSize)).toEqual(correctArray);
+    expect(parse.startPos(line,gSize)).toEqual(correctArray);
 });
 
 test('robotMoves returns correct array.', () => {
