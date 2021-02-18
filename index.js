@@ -1,11 +1,8 @@
 import rlSync from 'readline-sync';
-// import readline from 'readline';
 import * as parse from './src/parse-lines.js';
+import * as output from './src/output.js';
 
-// const line  = '   10 30';
-// const line2 = '   4 5 W ';
-// const line3 = 'FFFF RRLFLFRL      ';
-
+console.log("Red Badger Martin Robot Tracker\nEnter grid size (x and 7 axis) start position (x and y) with direction\nand robot movements R, L, or F. See README for details.\n");
 
 let line = rlSync.question('Grid Size: ');
 let gridSize = parse.gridSize(line);
@@ -29,14 +26,16 @@ let robotMoves = parse.robotMoves(line3);
 if (robotMoves === 'Error') {
     process.exit(0);
 };
+let endPosObj = {
+    "x": startPosObj.xStart,
+    "y": startPosObj.yStart,
+    "direction": startPosObj.direction
+};
+
 let robotObj = {
     "start": startPosObj,
     "moves": robotMoves,
-    "end": {}
+    "end": endPosObj
 };
-
-console.log(gridSize);
-console.log(startPos);
-console.log(startPosObj);
-console.log(robotMoves);
-console.log(robotObj);
+// console.log(robotObj);
+output.computeRobotMoves(robotObj);
