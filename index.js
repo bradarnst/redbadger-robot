@@ -1,8 +1,9 @@
 import rlSync from 'readline-sync';
 import * as parse from './src/parse-lines.js';
 import * as output from './src/output.js';
+let badSmells = [];
 
-console.log("Red Badger Martin Robot Tracker\nEnter grid size (x and 7 axis) start position (x and y) with direction\nand robot movements R, L, or F. See README for details.\n");
+console.log("Red Badger Martian Robot Tracker\nEnter grid size (x and y axis) start position (x and y) with direction\nand robot movements R, L, or F. See README for details.\n");
 
 let line = rlSync.question('Grid Size: ');
 let gridSize = parse.gridSize(line);
@@ -38,4 +39,7 @@ let robotObj = {
     "end": endPosObj
 };
 // console.log(robotObj);
-output.computeRobotMoves(robotObj,gridSize);
+output.computeRobotMoves(robotObj,gridSize,badSmells);
+if (badSmells.length > 0) {
+    console.log(`These are the bad smells points: ${badSmells}`);
+};
