@@ -38,8 +38,9 @@ let robotObj = {
     "moves": robotMoves,
     "end": endPosObj
 };
-// console.log(robotObj);
 output.computeRobotMoves(robotObj,gridSize,badSmells);
 if (badSmells.length > 0) {
     console.log(`These are the bad smells points: ${badSmells}`);
 };
+// let robj = JSON.stringify(robotObj);
+// console.log(robj);
